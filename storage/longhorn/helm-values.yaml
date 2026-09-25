@@ -1,0 +1,24 @@
+# Values for the official longhorn/longhorn Helm chart.
+# We disable the chart's default StorageClass and define our own explicit
+# one in storageclass.yaml, so replica count / reclaim policy are visible
+# in git rather than buried in a chart default.
+
+defaultSettings:
+  defaultDataPath: /var/lib/longhorn
+  defaultReplicaCount: 2
+  # Keep at least one healthy replica reachable before allowing scheduling
+  # of workloads that use it — avoids surprises during node maintenance.
+  replicaSoftAntiAffinity: true
+
+persistence:
+  defaultClass: false
+  defaultClassReplicaCount: 2
+
+longhornUI:
+  replicas: 1
+
+csi:
+  attacherReplicaCount: 2
+  provisionerReplicaCount: 2
+  resizerReplicaCount: 2
+  snapshotterReplicaCount: 2
