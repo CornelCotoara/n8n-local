@@ -3,13 +3,12 @@ kind: Kustomization
 namespace: n8n
 resources:
   - namespace.yaml
+  - shared-secret.yaml
   - postgres/pvc.yaml
   - postgres/service.yaml
   - postgres/statefulset.yaml
-  - postgres/secret.yaml
   - n8n/pvc.yaml
   - n8n/configmap.yaml
-  - n8n/secret.yaml
   - n8n/deployment.yaml
   - n8n/service.yaml
   - ingress/ingressroute.yaml
