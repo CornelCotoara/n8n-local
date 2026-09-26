@@ -14,6 +14,9 @@ spec:
         app: n8n
     spec:
       securityContext:
+        # n8nio/n8n runs as the built-in "node" user (uid/gid 1000).
+        # Without fsGroup, the Longhorn-backed PVC mounts owned by root
+        # and n8n gets EACCES writing to /home/node/.n8n/config.
         fsGroup: 1000
       containers:
         - name: n8n

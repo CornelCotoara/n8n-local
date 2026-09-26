@@ -15,3 +15,8 @@ data:
   WEBHOOK_URL: "http://n8n.home.arpa/"
   GENERIC_TIMEZONE: "Europe/Bucharest"
   N8N_RUNNERS_ENABLED: "true"
+  # Browsers only treat `localhost` as a secure context over plain HTTP —
+  # a real hostname like n8n.home.arpa over HTTP gets its Secure cookie
+  # rejected, so the browser never actually logs in. Turn this back to
+  # "true" (or remove it) once TLS is added on the websecure entrypoint.
+  N8N_SECURE_COOKIE: "false"
